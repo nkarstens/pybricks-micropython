@@ -46,9 +46,10 @@ PROCESS_THREAD(pbsys_system_process, ev, data) {
 
 void pbsys_init(void) {
     pbsys_battery_init();
-    pbsys_bluetooth_init();
     pbsys_hmi_init();
     pbsys_program_load_init();
+    if (!pbsys_program_load_get_bluetooth_disabled())
+        pbsys_bluetooth_init();
     process_start(&pbsys_system_process);
 
     while (pbsys_init_busy()) {
