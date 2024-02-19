@@ -50,6 +50,10 @@ extern "C" {
 
 #define USBD_PYBRICKS_MAX_PACKET_SIZE      64U
 
+#define USBD_PYBRICKS_MSG_COMMAND          0x00
+#define USBD_PYBRICKS_MSG_COMMAND_RESPONSE 0x01
+#define USBD_PYBRICKS_MSG_EVENT            0x02
+
 /**
   * @}
   */
@@ -99,6 +103,7 @@ typedef struct
 extern USBD_ClassTypeDef USBD_Pybricks_ClassDriver;
 
 extern const uint8_t USBD_OSDescSet[USBD_SIZ_MS_OS_DSCRPTR_SET];
+
 /**
   * @}
   */
